@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowSync - Startup Showcase</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body data-theme="purple">
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button class="theme-btn" onclick="setTheme('purple')" data-theme="purple">
+            <div class="theme-preview purple-theme"></div>
+        </button>
+        <button class="theme-btn" onclick="setTheme('blue')" data-theme="blue">
+            <div class="theme-preview blue-theme"></div>
+        </button>
+        <button class="theme-btn" onclick="setTheme('green')" data-theme="green">
+            <div class="theme-preview green-theme"></div>
+        </button>
+        <button class="theme-btn" onclick="setTheme('orange')" data-theme="orange">
+            <div class="theme-preview orange-theme"></div>
+        </button>
+        <button class="theme-btn" onclick="setTheme('pink')" data-theme="pink">
+            <div class="theme-preview pink-theme"></div>
+        </button>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top glass-nav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">FlowSync</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#metrics">Metrics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#investors">Investors</a></li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            Investor Portal
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section parallax-container">
+        <div class="hero-overlay"></div>
+        <div class="parallax-bg"></div>
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center hero-content" data-aos="fade-up" data-aos-duration="1000">
+                    <span class="badge funding-badge mb-3" data-aos="zoom-in" data-aos-delay="200">Series A • $6.3M Raised</span>
+                    <h1 class="hero-title mb-4" data-aos="fade-up" data-aos-delay="400">FlowSync</h1>
+                    <p class="hero-subtitle mb-5" data-aos="fade-up" data-aos-delay="600">
+                        The AI-powered project management platform that adapts to your team's unique workflow
+                    </p>
+                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                        <button class="btn btn-primary btn-lg demo-btn pulse-btn" data-bs-toggle="modal" data-bs-target="#demoModal">
+                            <i class="fas fa-play me-2"></i>Watch Demo
+                        </button>
+                        <button class="btn btn-outline-light btn-lg hover-lift">
+                            View Pitch Deck <i class="fas fa-arrow-right ms-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funding Tracker -->
+    <section class="funding-section py-5" data-aos="fade-up">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="text-white mb-3">Funding Progress</h2>
+                <p class="text-muted">Series A Round • Target: $8.5M</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="d-flex justify-content-between small text-muted mb-2">
+                        <span>$0</span>
+                        <span class="fw-bold text-primary" id="funding-amount">$0M raised</span>
+                        <span>$8.5M</span>
+                    </div>
+                    <div class="progress mb-4 glow-progress" style="height: 12px;">
+                        <div class="progress-bar" id="funding-progress" role="progressbar" style="width: 0%"></div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-6 col-md-3 mb-3" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="metric-card">
+                                <div class="metric-value text-white" data-counter="6.3">$0M</div>
+                                <div class="metric-label text-muted">Committed</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="metric-card">
+                                <div class="metric-value text-primary" data-counter="12">0</div>
+                                <div class="metric-label text-muted">Investors</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="metric-card">
+                                <div class="metric-value text-success" data-counter="2.5">0x</div>
+                                <div class="metric-label text-muted">Oversubscribed</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="metric-card">
+                                <div class="metric-value text-info" data-counter="45">0 days</div>
+                                <div class="metric-label text-muted">To close</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Metrics Dashboard -->
+    <section id="metrics" class="metrics-dashboard py-5">
+        <div class="container">
+            <h2 class="text-white text-center mb-5" data-aos="fade-up">Live Metrics Dashboard</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="chart-card">
+                        <h5 class="text-white mb-3">Revenue Growth</h5>
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-left">
+                    <div class="chart-card">
+                        <h5 class="text-white mb-3">User Acquisition</h5>
+                        <canvas id="userChart"></canvas>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="metric-card-large">
+                        <div class="metric-icon"><i class="fas fa-users"></i></div>
+                        <div class="metric-number" data-counter="2500">0</div>
+                        <div class="metric-text">Active Users</div>
+                        <div class="metric-change">+40% this month</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="metric-card-large">
+                        <div class="metric-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="metric-number" data-counter="180">$0K</div>
+                        <div class="metric-text">ARR</div>
+                        <div class="metric-change">+65% YoY</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="metric-card-large">
+                        <div class="metric-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="metric-number" data-counter="95">0%</div>
+                        <div class="metric-text">Satisfaction</div>
+                        <div class="metric-change">Industry leading</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section py-5">
+        <div class="container">
+            <h2 class="text-white text-center mb-5" data-aos="fade-up">Meet Our Team</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="flip-left" data-aos-delay="100">
+                    <div class="team-card">
+                        <div class="team-image-container">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Alex Chen" class="team-image">
+                            <div class="team-overlay">
+                                <div class="social-links">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h5 class="text-white">Alex Chen</h5>
+                            <p class="text-primary">CEO & Co-Founder</p>
+                            <p class="text-muted small">Former VP at Salesforce. 15+ years in SaaS. Stanford MBA. Led teams of 200+.</p>
+                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#teamModal" 
+                                    onclick="showTeamMember('alex')">View Bio</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="flip-left" data-aos-delay="200">
+                    <div class="team-card">
+                        <div class="team-image-container">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Sarah Kim" class="team-image">
+                            <div class="team-overlay">
+                                <div class="social-links">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h5 class="text-white">Sarah Kim</h5>
+                            <p class="text-primary">CTO & Co-Founder</p>
+                            <p class="text-muted small">Ex-Google AI researcher. PhD in Machine Learning. 10+ years building scalable systems.</p>
+                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#teamModal" 
+                                    onclick="showTeamMember('sarah')">View Bio</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="flip-left" data-aos-delay="300">
+                    <div class="team-card">
+                        <div class="team-image-container">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Marcus Johnson" class="team-image">
+                            <div class="team-overlay">
+                                <div class="social-links">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h5 class="text-white">Marcus Johnson</h5>
+                            <p class="text-primary">VP of Growth</p>
+                            <p class="text-muted small">Former Stripe growth lead. Scaled revenue from $1M to $100M. Harvard Business School.</p>
+                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#teamModal" 
+                                    onclick="showTeamMember('marcus')">View Bio</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Pitch Deck -->
+    <section class="pitch-deck-section py-5" data-aos="fade-up">
+        <div class="container">
+            <h2 class="text-white text-center mb-5">Interactive Pitch Deck</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div id="pitchCarousel" class="carousel slide pitch-carousel" data-bs-ride="false">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="pitch-slide text-center">
+                                    <div class="pitch-icon">🎯</div>
+                                    <h3 class="text-white mb-4">The Problem</h3>
+                                    <p class="text-light">Traditional project management tools are complex, expensive, and don't adapt to modern remote work needs.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="pitch-slide text-center">
+                                    <div class="pitch-icon">💡</div>
+                                    <h3 class="text-white mb-4">Our Solution</h3>
+                                    <p class="text-light">FlowSync - An AI-powered project management platform that adapts to your team's workflow automatically.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="pitch-slide text-center">
+                                    <div class="pitch-icon">📈</div>
+                                    <h3 class="text-white mb-4">Market Size</h3>
+                                    <p class="text-light">$45B global project management software market growing at 10.67% CAGR through 2028.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="pitch-slide text-center">
+                                    <div class="pitch-icon">💰</div>
+                                    <h3 class="text-white mb-4">Business Model</h3>
+                                    <p class="text-light">SaaS subscription model: $29/user/month with enterprise packages starting at $99/user/month.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="pitch-slide text-center">
+                                    <div class="pitch-icon">🚀</div>
+                                    <h3 class="text-white mb-4">Traction</h3>
+                                    <p class="text-light">2,500+ active users, $180K ARR, 40% month-over-month growth, partnerships with 3 Fortune 500 companies.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev hover-scale" type="button" data-bs-target="#pitchCarousel" data-bs-slide="prev">
+                            <i class="fas fa-chevron-left text-white"></i>
+                        </button>
+                        <button class="carousel-control-next hover-scale" type="button" data-bs-target="#pitchCarousel" data-bs-slide="next">
+                            <i class="fas fa-chevron-right text-white"></i>
+                        </button>
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#pitchCarousel" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#pitchCarousel" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#pitchCarousel" data-bs-slide-to="2"></button>
+                            <button type="button" data-bs-target="#pitchCarousel" data-bs-slide-to="3"></button>
+                            <button type="button" data-bs-target="#pitchCarousel" data-bs-slide-to="4"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investor Cards -->
+    <section id="investors" class="investors-section py-5" data-aos="fade-up">
+        <div class="container">
+            <h2 class="text-white text-center mb-5">Our Investors</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card investor-card h-100 hover-lift">
+                        <div class="card-body text-center">
+                            <img src="/placeholder.svg?height=80&width=80" alt="Sarah Chen" class="investor-avatar mb-3">
+                            <h5 class="card-title text-white">Sarah Chen</h5>
+                            <p class="card-text text-muted">Venture Capital Partners</p>
+                            <span class="badge investment-badge mb-2">$2.5M</span>
+                            <p class="text-primary small">Series A Lead</p>
+                            <p class="text-muted small">SaaS & Enterprise Software</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card investor-card h-100 hover-lift">
+                        <div class="card-body text-center">
+                            <img src="/placeholder.svg?height=80&width=80" alt="Michael Rodriguez" class="investor-avatar mb-3">
+                            <h5 class="card-title text-white">Michael Rodriguez</h5>
+                            <p class="card-text text-muted">Tech Growth Fund</p>
+                            <span class="badge investment-badge mb-2">$1.8M</span>
+                            <p class="text-primary small">Series A</p>
+                            <p class="text-muted small">AI & Machine Learning</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card investor-card h-100 hover-lift">
+                        <div class="card-body text-center">
+                            <img src="/placeholder.svg?height=80&width=80" alt="Emily Watson" class="investor-avatar mb-3">
+                            <h5 class="card-title text-white">Emily Watson</h5>
+                            <p class="card-text text-muted">Innovation Ventures</p>
+                            <span class="badge investment-badge mb-2">$1.2M</span>
+                            <p class="text-primary small">Seed Extension</p>
+                            <p class="text-muted small">Product & Design</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="card investor-card h-100 hover-lift">
+                        <div class="card-body text-center">
+                            <img src="/placeholder.svg?height=80&width=80" alt="David Kim" class="investor-avatar mb-3">
+                            <h5 class="card-title text-white">David Kim</h5>
+                            <p class="card-text text-muted">Future Capital</p>
+                            <span class="badge investment-badge mb-2">$800K</span>
+                            <p class="text-primary small">Seed</p>
+                            <p class="text-muted small">Go-to-Market Strategy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section py-5" data-aos="fade-up">
+        <div class="container">
+            <h2 class="text-white text-center mb-5">What Our Customers Say</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card testimonial-card h-100 hover-lift">
+                        <div class="card-body">
+                            <div class="stars mb-3">★★★★★</div>
+                            <p class="card-text text-light fst-italic mb-4">
+                                "FlowSync transformed how our distributed team collaborates. We've seen 40% improvement in project delivery times."
+                            </p>
+                            <div class="d-flex align-items-center">
+                                <img src="/placeholder.svg?height=60&width=60" alt="Jennifer Martinez" class="testimonial-avatar me-3">
+                                <div>
+                                    <h6 class="text-white mb-0">Jennifer Martinez</h6>
+                                    <small class="text-muted">VP of Engineering</small>
+                                    <div class="text-primary small">TechCorp Inc.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card testimonial-card h-100 hover-lift">
+                        <div class="card-body">
+                            <div class="stars mb-3">★★★★★</div>
+                            <p class="card-text text-light fst-italic mb-4">
+                                "The AI-powered insights helped us identify bottlenecks we never knew existed. Game-changing for our operations."
+                            </p>
+                            <div class="d-flex align-items-center">
+                                <img src="/placeholder.svg?height=60&width=60" alt="Robert Thompson" class="testimonial-avatar me-3">
+                                <div>
+                                    <h6 class="text-white mb-0">Robert Thompson</h6>
+                                    <small class="text-muted">Operations Director</small>
+                                    <div class="text-primary small">Global Solutions Ltd.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card testimonial-card h-100 hover-lift">
+                        <div class="card-body">
+                            <div class="stars mb-3">★★★★★</div>
+                            <p class="card-text text-light fst-italic mb-4">
+                                "Finally, a project management tool that adapts to us instead of forcing us to adapt to it."
+                            </p>
+                            <div class="d-flex align-items-center">
+                                <img src="/placeholder.svg?height=60&width=60" alt="Lisa Chang" class="testimonial-avatar me-3">
+                                <div>
+                                    <h6 class="text-white mb-0">Lisa Chang</h6>
+                                    <small class="text-muted">Product Manager</small>
+                                    <div class="text-primary small">Innovation Labs</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section py-5" data-aos="zoom-in">
+        <div class="container text-center">
+            <h2 class="text-white mb-4">Ready to Join Our Journey?</h2>
+            <p class="text-light mb-5 mx-auto" style="max-width: 600px;">
+                Be part of the future of project management. Connect with our team to learn more about investment opportunities.
+            </p>
+            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                <button class="btn btn-primary btn-lg pulse-btn">Schedule a Meeting</button>
+                <button class="btn btn-outline-light btn-lg hover-lift">Download Pitch Deck</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <!-- Demo Modal -->
+    <div class="modal fade" id="demoModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white">Product Demo</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="demo-container">
+                        <div class="text-center">
+                            <i class="fas fa-play demo-play-icon mb-4 pulse-icon"></i>
+                            <h4 class="text-white mb-3">Interactive Product Demo</h4>
+                            <p class="text-muted">Experience FlowSync's AI-powered workflow optimization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white">Investor Portal Login</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label text-white">Email</label>
+                            <input type="email" class="form-control bg-secondary text-white border-0" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label text-white">Password</label>
+                            <input type="password" class="form-control bg-secondary text-white border-0" id="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Access Portal</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Modal -->
+    <div class="modal fade" id="teamModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white" id="teamModalTitle">Team Member</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="teamModalBody">
+                    <!-- Content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Investor Portal -->
+    <div class="modal fade" id="investorPortal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white">Investor Portal - Confidential</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card bg-secondary">
+                                <div class="card-body">
+                                    <h6 class="text-white">Monthly Recurring Revenue</h6>
+                                    <h3 class="text-success">$47,500</h3>
+                                    <small class="text-muted">+12% from last month</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card bg-secondary">
+                                <div class="card-body">
+                                    <h6 class="text-white">Customer Acquisition Cost</h6>
+                                    <h3 class="text-info">$89</h3>
+                                    <small class="text-muted">-15% from last month</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card bg-secondary">
+                                <div class="card-body">
+                                    <h6 class="text-white mb-3">Financial Projections</h6>
+                                    <canvas id="financialChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
